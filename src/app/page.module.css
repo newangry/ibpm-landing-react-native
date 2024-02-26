@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.nonInteractive {
+  pointer-events: none;
+}
+
 .centered {
   display: flex;
   margin: 0 auto;
@@ -43,4 +47,30 @@
   padding: 16px;
   margin-left: 16px;
   box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+}
+
+.deviceFrame {
+  margin-right: 64px;
+}
+
+@media (max-width: 1150px) {
+  .hero {
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+  }
+
+  .card {
+    width: 90vw;
+    margin-left: 0px;
+    margin-bottom: 32px;
+  }
+
+  .deviceFrame {
+    margin-right: 0px;
+  }
+
+  .main {
+    overflow-x: hidden;
+  }
 }

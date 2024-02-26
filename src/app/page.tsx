@@ -5,12 +5,12 @@ import Logo from "@/components/Logo";
 import { WavyBackground } from "@/components/WavyBackground";
 import styles from "./page.module.css";
 
-export default function Home() {
-  const isDarkMode =
-    window && window.matchMedia("(prefers-color-scheme: dark)").matches;
+const checkDarkTheme = () =>
+  window && window.matchMedia("(prefers-color-scheme: dark)").matches;
 
+export default function Home() {
   return (
-    <WavyBackground backgroundFill={isDarkMode ? "black" : "white"}>
+    <WavyBackground backgroundFill={checkDarkTheme() ? "black" : "white"}>
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.card}>
@@ -29,27 +29,24 @@ export default function Home() {
               <br />
               <ul style={{ paddingLeft: 16 }}>
                 <li>
-                  {" "}
                   <strong>Capture the rhythm:</strong> Simply press the record
                   button and let iBPM analyze the ambient music.
                 </li>
                 <li>
-                  {" "}
                   <strong>Get your BPM:</strong> The app will display the exact
                   tempo of the music, allowing you to sync with the beat with
                   precision.
                 </li>
                 <li>
-                  {" "}
                   <strong>Effortless workflow:</strong> iBPM seamlessly
                   integrates with your music library and provides quick access
                   to your tempo history.
                 </li>
                 <li>
-                  {" "}
-                  <strong>Offline first:</strong> Don't worry about internet
-                  connectivity. IBPM stores your tempo data locally, so you can
-                  access it anytime, anywhere.
+                  <strong>Offline first:</strong>
+                  {
+                    " Don't worry about internet connectivity. IBPM stores your tempo data locally, so you can access it anytime, anywhere."
+                  }
                 </li>
               </ul>
               <br />
@@ -64,13 +61,13 @@ export default function Home() {
               className={cn(styles.pointer, styles.centered)}
             />
           </div>
-          <div style={{ marginRight: 64 }}>
+          <div className={styles.deviceFrame}>
             <Image
               width={400}
               height={640}
               src="/frame.png"
               alt="iphone frame"
-              className={styles.pointer}
+              className={cn(styles.pointer, styles.nonInteractive)}
             />
           </div>
         </section>
