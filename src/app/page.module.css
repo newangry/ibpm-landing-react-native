@@ -1,5 +1,5 @@
 .main {
-  color: #FFF;
+  color: var(--text-color);
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -14,45 +14,33 @@
   left: 0;
 }
 
-.nav {
-  align-self: flex-start;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: calc(100% - 16px);
-  height: 64px;
-  background-color: #6664;
-  border-radius: 8px;
-  backdrop-filter: blur(4px);
-  padding: 0px 4px;
-}
-
-.nav > span > h1 {
-  font-size: 21px;
-  font-weight: 700;
-  color: #FFF !important;
-}
-
-.nav > span {
-  gap: 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.rightAligned {
-  transform: translateX(20px);
-
-}
-
 .pointer {
   cursor: pointer;
 }
 
-.device {
-  max-height: 100%;
-  max-width: 15vw;
-  width: auto;
-  aspect-ratio: 9/19.5
+.centered {
+  display: flex;
+  margin: 0 auto;
 }
 
+.hero {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  color: inherit;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  width: 65vw;
+  height: 60%;
+  color: var(--text-color);
+  background-color: var(--glass-background);
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+  padding: 16px;
+  margin-left: 16px;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+}
