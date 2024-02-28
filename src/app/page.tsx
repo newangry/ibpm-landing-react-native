@@ -2,15 +2,28 @@
 import cn from "clsx";
 import Image from "next/image";
 import Logo from "@/components/Logo";
+import { useState, useLayoutEffect } from "react";
 import { WavyBackground } from "@/components/WavyBackground";
 import styles from "./page.module.css";
 
-const checkDarkTheme = () =>
-  window && window.matchMedia("(prefers-color-scheme: dark)").matches;
-
 export default function Home() {
+  const [isDarkMode, setDarkMode] = useState(false);
+
+  useLayoutEffect(() => {
+    const updateTheme = (evt: MediaQueryListEvent) => {
+      setDarkMode(evt.matches);
+    };
+
+    const query = window.matchMedia("prefers-color-scheme: dark");
+    query.addEventListener("change", updateTheme);
+
+    return () => {
+      query.removeEventListener("change", updateTheme);
+    };
+  }, []);
+
   return (
-    <WavyBackground backgroundFill={checkDarkTheme() ? "black" : "white"}>
+    <WavyBackground backgroundFill={isDarkMode ? "black" : "white"}>
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.card}>
