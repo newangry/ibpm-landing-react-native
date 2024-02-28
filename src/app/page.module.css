@@ -39,7 +39,7 @@
 
 .card {
   width: 65vw;
-  height: 60%;
+  height: auto;
   color: var(--text-color);
   background-color: var(--glass-background);
   border-radius: 16px;
@@ -62,6 +62,7 @@
 
   .card {
     width: 90vw;
+    height: auto;
     margin-left: 0px;
     margin-bottom: 32px;
   }

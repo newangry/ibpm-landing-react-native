@@ -2,48 +2,52 @@
 import cn from "clsx";
 import Image from "next/image";
 import Logo from "@/components/Logo";
-import { useState, useLayoutEffect } from "react";
+import Slides from "@/components/Slides";
+import { useState, useEffect } from "react";
 import { WavyBackground } from "@/components/WavyBackground";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [isDarkMode, setDarkMode] = useState(false);
+  const [isDarkMode, setDarkMode] = useState(true);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const updateTheme = (evt: MediaQueryListEvent) => {
       setDarkMode(evt.matches);
     };
 
-    const query = window.matchMedia("prefers-color-scheme: dark");
+
+    const query = window.matchMedia("(prefers-color-scheme: dark)");
     query.addEventListener("change", updateTheme);
+    
+    setDarkMode(query.matches)
 
     return () => {
       query.removeEventListener("change", updateTheme);
     };
   }, []);
 
+  const backgroundFill = isDarkMode ? "black" : "white"
+
   return (
-    <WavyBackground backgroundFill={isDarkMode ? "black" : "white"}>
+    <WavyBackground key={backgroundFill} backgroundFill={backgroundFill}>
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.card}>
             <Logo />
-            <p style={{ marginTop: 16 }}>
+            <span style={{ marginTop: 16 }}>
               <h2 style={{ marginBottom: 8 }}>
                 Tired of tapping your phone to find the beat?
               </h2>
-              <strong>iBPM</strong> is an app designed with a seamless user
-              experience in mind that revolutionizes the way you experience
-              rhythm. Using your microphone and the powerful Beatroot algorithm,
-              iBPM analyzes ambient music and accurately determines its tempo.
-              Say goodbye to tedious tap counting and hello to effortless beat
-              detection.
-              <br />
-              <br />
+              <strong>iBPM</strong>
+              {
+                " is an app designed with a seamless user experience in mind that revolutionizes the way you experience rhythm. Using your microphone and the powerful Beatroot algorithm, iBPM analyzes ambient music and accurately determines its tempo. Say goodbye to tedious tap counting and hello to effortless beat detection."
+              }
               <ul style={{ paddingLeft: 16 }}>
                 <li>
-                  <strong>Capture the rhythm:</strong> Simply press the record
-                  button and let iBPM analyze the ambient music.
+                  <strong>Capture the rhythm:</strong>
+                  {
+                    " Simply press the record button and let iBPM analyze the ambient music."
+                  }
                 </li>
                 <li>
                   <strong>Get your BPM:</strong> The app will display the exact
@@ -65,7 +69,7 @@ export default function Home() {
               <br />
               Stop tapping and start feeling the rhythm with iBPM. Download
               today and unlock the power of effortless beat detection.
-            </p>
+            </span>
             <Image
               src="/appstore.svg"
               alt="get it on the ios app store"
@@ -74,15 +78,7 @@ export default function Home() {
               className={cn(styles.pointer, styles.centered)}
             />
           </div>
-          <div className={styles.deviceFrame}>
-            <Image
-              width={400}
-              height={640}
-              src="/frame.png"
-              alt="iphone frame"
-              className={cn(styles.pointer, styles.nonInteractive)}
-            />
-          </div>
+          <Slides />
         </section>
       </main>
     </WavyBackground>
