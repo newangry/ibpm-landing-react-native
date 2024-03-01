@@ -14,19 +14,6 @@
   left: 0;
 }
 
-.pointer {
-  cursor: pointer;
-}
-
-.nonInteractive {
-  pointer-events: none;
-}
-
-.centered {
-  display: flex;
-  margin: 0 auto;
-}
-
 .hero {
   flex: 1;
   width: 100%;
@@ -37,40 +24,12 @@
   justify-content: space-between;
 }
 
-.card {
-  width: 65vw;
-  height: auto;
-  color: var(--text-color);
-  background-color: var(--glass-background);
-  border-radius: 16px;
-  backdrop-filter: blur(4px);
-  padding: 16px;
-  margin-left: 16px;
-  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-}
-
-.deviceFrame {
-  margin-right: 64px;
-}
-
 @media (max-width: 1150px) {
   .hero {
     align-items: center;
     flex-direction: column-reverse;
     justify-content: flex-start;
   }
-
-  .card {
-    width: 90vw;
-    height: auto;
-    margin-left: 0px;
-    margin-bottom: 32px;
-  }
-
-  .deviceFrame {
-    margin-right: 0px;
-  }
-
   .main {
     overflow-x: hidden;
   }

@@ -1,0 +1,29 @@
+.pointer {
+  cursor: pointer;
+}
+
+.centered {
+  display: flex;
+  margin: 0 auto;
+}
+
+.card {
+  width: 65vw;
+  height: auto;
+  color: var(--text-color);
+  background-color: var(--glass-background);
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+  padding: 16px;
+  margin-left: 16px;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1150px) {
+  .card {
+    width: 90vw;
+    height: auto;
+    margin-left: 0px;
+    margin-bottom: 32px;
+  }
+}
