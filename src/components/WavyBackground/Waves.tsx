@@ -1,10 +1,8 @@
-
 "use client";
-import { cn } from "@/utils/cn";
 import React, { useEffect, useRef } from "react";
 import { createNoise3D } from "simplex-noise";
 
-export const WavyBackground = ({
+export const Waves = ({
   children,
   className,
   containerClassName,
@@ -52,12 +50,10 @@ export const WavyBackground = ({
     ctx = canvas.getContext("2d");
     w = ctx.canvas.width = window.innerWidth;
     h = ctx.canvas.height = window.innerHeight;
-    ctx.filter = `blur(${blur}px)`;
     nt = 0;
     window.onresize = function () {
       w = ctx.canvas.width = window.innerWidth;
       h = ctx.canvas.height = window.innerHeight;
-      ctx.filter = `blur(${blur}px)`;
     };
     render();
   };
@@ -93,7 +89,7 @@ export const WavyBackground = ({
     animationId = requestAnimationFrame(render);
   };
 
-  useEffect(() => {    
+  useEffect(() => {
     init();
     return () => {
       cancelAnimationFrame(animationId);
@@ -101,18 +97,9 @@ export const WavyBackground = ({
   }, []); // eslint-disable-line
 
   return (
-    <div
-      className={cn(
-        "h-screen flex flex-col items-center justify-center",
-        containerClassName
-      )}
-    >
-      <canvas
-        className="absolute inset-0 z-0"
-        ref={canvasRef}
-        id="canvas"
-      ></canvas>
-      <div className={cn("relative z-10", className)} {...props}>
+    <div className={containerClassName}>
+      <canvas ref={canvasRef} id="canvas"></canvas>
+      <div className={className} {...props}>
         {children}
       </div>
     </div>
