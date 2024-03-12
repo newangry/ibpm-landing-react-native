@@ -1,16 +1,15 @@
 import Image from "next/image";
-import styles from "./Logo.module.css"
+import styles from "./Logo.module.css";
 
-const Logo = () => (
+type LogoProps = {
+  label?: string;
+};
+
+const Logo = ({ label = "iBPM" }: LogoProps) => (
   <span className={styles.container}>
-    <Image
-      width={58}
-      height={58}
-      src="/logo.png"
-      alt="iBPM logo"
-    />
-    <h1>iBPM</h1>
+    <Image width={58} height={58} src="/logo.png" alt="iBPM logo" />
+    <h1>{label}</h1>
   </span>
 );
 
-export default Logo
+export default Logo;
