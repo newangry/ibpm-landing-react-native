@@ -1,15 +1,7 @@
-.pointer {
-  cursor: pointer;
-}
-
-.centered {
-  display: flex;
-  margin: 0 auto;
-}
-
 .card {
   width: 65vw;
   height: auto;
+  min-height: 320px;
   color: var(--text-color);
   background-color: var(--glass-background);
   border-radius: 16px;
