@@ -7,7 +7,7 @@ import ContentCard from "@/components/ContentCard";
 import WavyBackground from "@/components/WavyBackground";
 import styles from "./page.module.css";
 
-export default function Home() {  
+export default function Home() {
   return (
     <WavyBackground>
       <section className={styles.hero}>
@@ -29,14 +29,12 @@ export default function Home() {
                 }
               </li>
               <li>
-                <strong>Get your BPM:</strong> The app will display the exact
+                <strong>Get your BPM:</strong> The app will display the
                 tempo of the music, allowing you to sync with the beat with
                 precision.
               </li>
               <li>
-                <strong>Effortless workflow:</strong> iBPM seamlessly integrates
-                with your music library and provides quick access to your tempo
-                history.
+                <strong>Effortless workflow:</strong> iBPM keeps a sample library and provides quick access to your history.
               </li>
               <li>
                 <strong>Offline first:</strong>
@@ -49,13 +47,15 @@ export default function Home() {
             Stop tapping and start feeling the rhythm with iBPM. Download today
             and unlock the power of effortless beat detection.
           </span>
-          <Image
-            src="/appstore.svg"
-            alt="get it on the ios app store"
-            height={150}
-            width={200}
-            className={clsx(styles.pointer, styles.centered)}
-          />
+          <div className={styles.windowed}>
+            <Image
+              src="/appstore.svg"
+              alt="get it on the ios app store"
+              height={150}
+              width={200}
+              className={clsx(styles.pointer, styles.centered)}
+            />
+          </div>
         </ContentCard>
         <Slides />
       </section>

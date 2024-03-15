@@ -36,6 +36,15 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  font-size: 36px;
+  margin: 16px 0px;
+}
+
+h3 {
+  margin: 8px 0px;
+}
+
 img {
   user-select: none;
 }

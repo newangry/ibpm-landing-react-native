@@ -17,6 +17,15 @@
   justify-content: space-between;
 }
 
+.windowed {
+  margin-top: 16px;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 1150px) {
   .hero {
     align-items: center;
