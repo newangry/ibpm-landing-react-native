@@ -7,6 +7,15 @@
   justify-content: center;  
 }
 
+.link {
+  color: #268596;
+  text-decoration: underline;
+}
+
+.link:visited {
+  color: #962626;
+}
+
 @media (max-width: 1150px) {
   .hero {
     align-items: center;

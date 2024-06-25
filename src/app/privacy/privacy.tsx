@@ -1,5 +1,6 @@
 "use client";
 import Logo from "@/components/Logo";
+import Link from "next/link"
 import WavyBackground from "@/components/WavyBackground";
 import ContentCard from "@/components/ContentCard";
 import styles from "./privacy.module.css";
@@ -41,7 +42,7 @@ function Privacy() {
           <h3>Contact Us:</h3>
           <p>
             If you have any questions or concerns about this Privacy Policy, you
-            can contact us at privacy at superiortech dot co
+            can contact us through our <Link className={styles.link} href="/support">Support page</Link>.
           </p>
         </ContentCard>
       </section>
